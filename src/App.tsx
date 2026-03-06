@@ -1,11 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { content, gameImageData, albumImageData } from './modules/data.tsx';
-import GameCoverArt from "./modules/GameCoverArt.tsx";
-import MusicCoverArt from "./modules/MusicCoverArt.tsx";
+import GameCoverArt from './modules/GameCoverArt.tsx';
+import MusicCoverArt from './modules/MusicCoverArt.tsx';
 
 function App() {
   const [lang, setLang] = useState<'en' | 'jp'>('en');
-  const [scrollPercent, setScrollPercent] = useState(0);
   const scrollRef = useRef<HTMLDivElement | undefined>(undefined);
   const [showEmail, setShowEmail] = useState<boolean>(false);
   const t = content[lang];
@@ -153,23 +152,28 @@ function App() {
           className="w-full h-full snap-section flex flex-col justify-center"
         >
           <h1 className="text-4xl mb-4 border-b-2 border-slate-100 pb-2">
-            {lang === "en" ? "Personal Favorites" : "趣味・お気に入り"}
+            {lang === 'en' ? 'Personal Favorites' : '趣味・お気に入り'}
           </h1>
           <h2 className="text-2xl">Games</h2>
           <div className="flex justify-center">
-            {
-              gameImageData.map(data =>
-                <GameCoverArt gameID={data.imageId} id={data.id} name={data.name}/>
-              )
-            }
+            {gameImageData.map((data) => (
+              <GameCoverArt
+                gameID={data.imageId}
+                id={data.id}
+                name={data.name}
+              />
+            ))}
           </div>
           <h2 className="text-2xl">Albums</h2>
           <div className="flex justify-center">
-            {
-              albumImageData.map(data =>
-                <MusicCoverArt albumID={data.imageId} id={data.id} name={data.name} artist={data.artist}/>
-              )
-            }
+            {albumImageData.map((data) => (
+              <MusicCoverArt
+                albumID={data.imageId}
+                id={data.id}
+                name={data.name}
+                artist={data.artist}
+              />
+            ))}
           </div>
         </section>
       </main>

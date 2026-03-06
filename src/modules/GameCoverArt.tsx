@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 type GameCoverArtProps = {
-  gameID: string,
-  id: number,
-  name: string,
+  gameID: string;
+  id: number;
+  name: string;
 };
 
 export default function GameCoverArt({ gameID, id, name }: GameCoverArtProps) {
-  const imageUrl = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameID}.webp`
+  const imageUrl = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameID}.webp`;
 
   return (
     <div className="group group-relative p-4 rounded-lg">

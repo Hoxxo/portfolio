@@ -34,52 +34,52 @@ const markdownContentJp = `
 export const gameImageData = [
   {
     id: 1,
-    name: "Outer Wilds",
-    imageId: "co65ac",
+    name: 'Outer Wilds',
+    imageId: 'co65ac',
   },
   {
     id: 2,
-    name: "Bloodborne",
-    imageId: "cob99l",
+    name: 'Bloodborne',
+    imageId: 'cob99l',
   },
   {
     id: 3,
-    name: "Hollow Knight: Silksong",
-    imageId: "cobebu",
+    name: 'Hollow Knight: Silksong',
+    imageId: 'cobebu',
   },
   {
     id: 4,
-    name: "Disco Elysium",
-    imageId: "co1sfj",
-  }
-]
+    name: 'Disco Elysium',
+    imageId: 'co1sfj',
+  },
+];
 
 export const albumImageData = [
   {
     id: 1,
-    name: "潜潜話",
-    imageId: "afa0b2a6-8384-44d4-a907-76da213ca24f/25740026489",
-    artist: "ずっと真夜中でいいのに。"
+    name: '潜潜話',
+    imageId: 'afa0b2a6-8384-44d4-a907-76da213ca24f/25740026489',
+    artist: 'ずっと真夜中でいいのに。',
   },
   {
     id: 2,
-    name: "結束バンド",
-    imageId: "c988920d-4b43-4399-a6e6-c9e551cf2f4c/34437814072",
-    artist: "結束バンド"
+    name: '結束バンド',
+    imageId: 'c988920d-4b43-4399-a6e6-c9e551cf2f4c/34437814072',
+    artist: '結束バンド',
   },
   {
     id: 3,
-    name: "一番はじめの出来事",
-    imageId: "b8e8f347-ef41-4e0f-9086-e1d53b55789d/39382543240",
-    artist: "the cabs"
+    name: '一番はじめの出来事',
+    imageId: 'b8e8f347-ef41-4e0f-9086-e1d53b55789d/39382543240',
+    artist: 'the cabs',
   },
   {
     id: 4,
-    name: "OK Computer",
-    imageId: "0b6b4ba0-d36f-47bd-b4ea-6a5b91842d29/3537819129",
-    artist: "Radiohead"
-  }
-]
+    name: 'OK Computer',
+    imageId: '0b6b4ba0-d36f-47bd-b4ea-6a5b91842d29/3537819129',
+    artist: 'Radiohead',
+  },
+];
 
 export const content = {
   en: {
