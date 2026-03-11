@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 type MusicCoverArtProps = {
   albumID: string;
   id: number;
@@ -9,7 +7,7 @@ type MusicCoverArtProps = {
 
 export default function MusicCoverArt({
   albumID,
-  id,
+  _id,
   name,
   artist,
 }: MusicCoverArtProps) {

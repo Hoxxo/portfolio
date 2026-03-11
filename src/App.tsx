@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { content, gameImageData, albumImageData } from './modules/data.tsx';
+import {content, gameImageData, albumImageData, bookImageData} from './modules/data.tsx';
 import GameCoverArt from './modules/GameCoverArt.tsx';
 import MusicCoverArt from './modules/MusicCoverArt.tsx';
+import BookCoverArt from "./modules/BookCoverArt.tsx";
 
 function App() {
   const [lang, setLang] = useState<'en' | 'jp'>('en');
@@ -144,18 +145,23 @@ function App() {
           <h1 className="flex-none text-4xl mb-4 border-b-2 border-slate-100 pb-2">
             {lang === 'en' ? 'About Me!' : '私について'}
           </h1>
-          <div>{t.aboutMe}</div>
+          <div className="leading-tight">{t.aboutMe}</div>
+          <div>
+            <blockquote>
+              {t.favoriteQuote.quote}
+            </blockquote>
+          </div>
         </section>
 
         <section
           id="interests"
-          className="w-full h-full snap-section flex flex-col justify-center"
+          className="w-full h-full snap-section flex flex-col overflow-y-auto justify-center"
         >
           <h1 className="text-4xl mb-4 border-b-2 border-slate-100 pb-2">
-            {lang === 'en' ? 'Personal Favorites' : '趣味・お気に入り'}
+            {lang === 'en' ? 'Personal Favorites' : 'お気に入り'}
           </h1>
-          <h2 className="text-2xl">Games</h2>
-          <div className="flex justify-center">
+          <h2 className="text-2xl mt-4">{lang === 'en' ? 'Games' : 'ゲーム'}</h2>
+          <div className="flex justify-center gap-2">
             {gameImageData.map((data) => (
               <GameCoverArt
                 gameID={data.imageId}
@@ -164,7 +170,7 @@ function App() {
               />
             ))}
           </div>
-          <h2 className="text-2xl">Albums</h2>
+          <h2 className="text-2xl">{lang === 'en' ? 'Albums & EPs' : 'アルバム・EP'}</h2>
           <div className="flex justify-center">
             {albumImageData.map((data) => (
               <MusicCoverArt
@@ -172,6 +178,17 @@ function App() {
                 id={data.id}
                 name={data.name}
                 artist={data.artist}
+              />
+            ))}
+          </div>
+          <h2 className="text-2xl">{lang === 'en' ? 'Books & Novels' : '本・小説'}</h2>
+          <div className="flex justify-center">
+            {bookImageData.map((data) => (
+              <BookCoverArt
+                bookID={data.imageID}
+                id={data.id}
+                name={data.name}
+                author={data.author}
               />
             ))}
           </div>

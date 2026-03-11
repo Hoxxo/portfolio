@@ -1,12 +1,10 @@
-import { useState } from 'react';
-
 type GameCoverArtProps = {
   gameID: string;
   id: number;
   name: string;
 };
 
-export default function GameCoverArt({ gameID, id, name }: GameCoverArtProps) {
+export default function GameCoverArt({ gameID, _id, name }: GameCoverArtProps) {
   const imageUrl = `https://images.igdb.com/igdb/image/upload/t_cover_big/${gameID}.webp`;
 
   return (
@@ -16,7 +14,7 @@ export default function GameCoverArt({ gameID, id, name }: GameCoverArtProps) {
         alt={name}
         className="transition-transform duration-300 group-hover:scale-105"
       />
-      <p className="mt-2 text-center text-semibold text-lg">{`${name}`}</p>
+      <p className="text-center text-semibold text-lg truncate">{`${name}`}</p>
     </div>
   );
 }
