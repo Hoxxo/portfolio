@@ -132,7 +132,7 @@ export const content = {
     licences: [
       'BSc. in Computer Engineering',
       'Pursuing MSc. in Computer Science',
-      'TOEIC 930',
+      'TOEIC 960',
       'Eiken Test in Practical English Proficiency Grade 1',
       'Eiken Test in Practical English Proficiency Grade Pre-1',
       '2nd Class Qualified Electrician',
@@ -208,7 +208,7 @@ export const content = {
     licences: [
       '学士（情報工学）',
       '修士（情報科学）取得のため勉励中',
-      'TOEIC 930点',
+      'TOEIC 960点',
       '実用英語技能検定1級',
       '実用英語技能検定準1級',
       '第二種電気工事士免状',
