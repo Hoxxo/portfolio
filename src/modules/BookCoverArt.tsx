@@ -1,17 +1,17 @@
-type MusicCoverArtProps = {
-  albumID: string;
+type BookCoverArtProps = {
+  bookID: string;
   id: number;
   name: string;
-  artist: string;
+  author: string;
 };
 
-export default function MusicCoverArt({
-  albumID,
-  _id,
+export default function BookCoverArt({
+  bookID,
+  _,
   name,
-  artist,
-}: MusicCoverArtProps) {
-  const imageUrl = `https://coverartarchive.org/release/${albumID}-500.jpg`;
+  author,
+}: BookCoverArtProps) {
+  const imageUrl = `https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/${bookID}.jpg`;
 
   return (
     <div className="group flex flex-col items-center p-2 rounded-lg h-full">
@@ -23,7 +23,7 @@ export default function MusicCoverArt({
         />
       </div>
       <p className="flex-none text-center font-semibold text-sm">{name}</p>
-      <p className="flex-none text-center text-sm text-slate-400">{artist}</p>
+      <p className="flex-none text-center text-sm text-slate-400">{author}</p>
     </div>
   );
 }

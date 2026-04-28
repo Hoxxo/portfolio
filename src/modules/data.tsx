@@ -10,6 +10,9 @@ const markdownContentEn = `
   - Compilers
   - Signal processing
   - Low-level systems
+  - Electronics
+  
+  and much more.
   
   I built my **first desktop computer at age 13**, and have been interested in computers, and IT systems since **elementary school**.
   I made my **first program in elementary school**, which was a simple text-based game programmed in bash, where the player chose from a list of options, and if they chose correctly they could advance to the next level.
@@ -18,9 +21,8 @@ const markdownContentEn = `
   My current interests are:
   - Digital communications
   - Error-correcting codes
-  - Electronics
   - Next-generation modulation schemes
-  - GoLang
+  - Learning GoLang
   
   I'm currently **researching about polarization-adjusted convolutional (PAC) codes** under the supervision of Prof. Takahiko Saba.
   I studied from the ground-up on PAC codes in my bachelor years,
@@ -81,6 +83,15 @@ export const albumImageData = [
   },
 ];
 
+export const bookImageData = [
+  {
+    id: 1,
+    name: "薬屋のひとりごと",
+    author: "日向夏",
+    imageID: "1508432170i/36441259"
+  }
+]
+
 export const content = {
   en: {
     name: (
@@ -138,6 +149,7 @@ export const content = {
       '2nd Class Qualified Electrician',
       'Hazardous Materials Handler of Class B Type 4',
       'Hazardous Materials Handler of Class B Type 2',
+      'Kyudo Grade-1'
     ],
     aboutMe: (
       <>
@@ -146,6 +158,10 @@ export const content = {
         </div>
       </>
     ),
+    favoriteQuote: {
+      quote: 'The only man who never makes mistakes is the man who never does anything',
+      by: 'Theodore Roosevelt'
+    }
   },
 
   jp: {
@@ -214,6 +230,7 @@ export const content = {
       '第二種電気工事士免状',
       '乙種第４類危険物取扱者免状',
       '乙種第２類危険物取扱者免状',
+      '弓道1級'
     ],
     aboutMe: (
       <>
@@ -222,5 +239,9 @@ export const content = {
         </div>
       </>
     ),
+    favoriteQuote: {
+      quote: 'The only man who never makes mistakes is the man who never does anything',
+      by: 'Theodore Roosevelt'
+    }
   },
 };

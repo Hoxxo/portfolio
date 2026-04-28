@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { content, gameImageData, albumImageData } from './modules/data.tsx';
+import {content, gameImageData, albumImageData, bookImageData} from './modules/data.tsx';
 import GameCoverArt from './modules/GameCoverArt.tsx';
 import MusicCoverArt from './modules/MusicCoverArt.tsx';
+import BookCoverArt from "./modules/BookCoverArt.tsx";
 
 function App() {
   const [lang, setLang] = useState<'en' | 'jp'>('en');
@@ -144,36 +145,63 @@ function App() {
           <h1 className="flex-none text-4xl mb-4 border-b-2 border-slate-100 pb-2">
             {lang === 'en' ? 'About Me!' : '私について'}
           </h1>
-          <div>{t.aboutMe}</div>
+          <div className="leading-tight">{t.aboutMe}</div>
+          <div>
+            <blockquote>
+              {t.favoriteQuote.quote}
+            </blockquote>
+          </div>
         </section>
 
         <section
           id="interests"
-          className="w-full h-full snap-section flex flex-col justify-center"
+          className="w-full h-full snap-section flex flex-col py-4 overflow-hidden"
         >
-          <h1 className="text-4xl mb-4 border-b-2 border-slate-100 pb-2">
-            {lang === 'en' ? 'Personal Favorites' : '趣味・お気に入り'}
+          <h1 className="flex-none text-4xl mb-2 border-b-2 border-slate-100 pb-2">
+            {lang === 'en' ? 'Personal Favorites' : 'お気に入り'}
           </h1>
-          <h2 className="text-2xl">Games</h2>
-          <div className="flex justify-center">
-            {gameImageData.map((data) => (
-              <GameCoverArt
-                gameID={data.imageId}
-                id={data.id}
-                name={data.name}
-              />
-            ))}
-          </div>
-          <h2 className="text-2xl">Albums</h2>
-          <div className="flex justify-center">
-            {albumImageData.map((data) => (
-              <MusicCoverArt
-                albumID={data.imageId}
-                id={data.id}
-                name={data.name}
-                artist={data.artist}
-              />
-            ))}
+          <div className="flex-1 min-h-0 flex flex-col gap-2">
+            <div className="flex-1 min-h-0 flex flex-col">
+              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Games' : 'ゲーム'}</h2>
+              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
+                {gameImageData.map((data) => (
+                  <GameCoverArt
+                    key={data.id}
+                    gameID={data.imageId}
+                    id={data.id}
+                    name={data.name}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="flex-1 min-h-0 flex flex-col">
+              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Albums & EPs' : 'アルバム・EP'}</h2>
+              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
+                {albumImageData.map((data) => (
+                  <MusicCoverArt
+                    key={data.id}
+                    albumID={data.imageId}
+                    id={data.id}
+                    name={data.name}
+                    artist={data.artist}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="flex-1 min-h-0 flex flex-col">
+              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Books & Novels' : '本・小説'}</h2>
+              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
+                {bookImageData.map((data) => (
+                  <BookCoverArt
+                    key={data.id}
+                    bookID={data.imageID}
+                    id={data.id}
+                    name={data.name}
+                    author={data.author}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>
