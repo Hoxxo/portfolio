@@ -155,42 +155,53 @@ function App() {
 
         <section
           id="interests"
-          className="w-full h-full snap-section flex flex-col overflow-y-auto justify-center"
+          className="w-full h-full snap-section flex flex-col py-4 overflow-hidden"
         >
-          <h1 className="text-4xl mb-4 border-b-2 border-slate-100 pb-2">
+          <h1 className="flex-none text-4xl mb-2 border-b-2 border-slate-100 pb-2">
             {lang === 'en' ? 'Personal Favorites' : 'お気に入り'}
           </h1>
-          <h2 className="text-2xl mt-4">{lang === 'en' ? 'Games' : 'ゲーム'}</h2>
-          <div className="flex justify-center gap-2">
-            {gameImageData.map((data) => (
-              <GameCoverArt
-                gameID={data.imageId}
-                id={data.id}
-                name={data.name}
-              />
-            ))}
-          </div>
-          <h2 className="text-2xl">{lang === 'en' ? 'Albums & EPs' : 'アルバム・EP'}</h2>
-          <div className="flex justify-center">
-            {albumImageData.map((data) => (
-              <MusicCoverArt
-                albumID={data.imageId}
-                id={data.id}
-                name={data.name}
-                artist={data.artist}
-              />
-            ))}
-          </div>
-          <h2 className="text-2xl">{lang === 'en' ? 'Books & Novels' : '本・小説'}</h2>
-          <div className="flex justify-center">
-            {bookImageData.map((data) => (
-              <BookCoverArt
-                bookID={data.imageID}
-                id={data.id}
-                name={data.name}
-                author={data.author}
-              />
-            ))}
+          <div className="flex-1 min-h-0 flex flex-col gap-2">
+            <div className="flex-1 min-h-0 flex flex-col">
+              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Games' : 'ゲーム'}</h2>
+              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
+                {gameImageData.map((data) => (
+                  <GameCoverArt
+                    key={data.id}
+                    gameID={data.imageId}
+                    id={data.id}
+                    name={data.name}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="flex-1 min-h-0 flex flex-col">
+              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Albums & EPs' : 'アルバム・EP'}</h2>
+              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
+                {albumImageData.map((data) => (
+                  <MusicCoverArt
+                    key={data.id}
+                    albumID={data.imageId}
+                    id={data.id}
+                    name={data.name}
+                    artist={data.artist}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="flex-1 min-h-0 flex flex-col">
+              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Books & Novels' : '本・小説'}</h2>
+              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
+                {bookImageData.map((data) => (
+                  <BookCoverArt
+                    key={data.id}
+                    bookID={data.imageID}
+                    id={data.id}
+                    name={data.name}
+                    author={data.author}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>

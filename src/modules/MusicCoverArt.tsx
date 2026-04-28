@@ -14,14 +14,16 @@ export default function MusicCoverArt({
   const imageUrl = `https://coverartarchive.org/release/${albumID}-500.jpg`;
 
   return (
-    <div className="group group-relative p-4 rounded-lg">
-      <img
-        src={imageUrl}
-        alt={name}
-        className="transition-transform duration-300 w-60 group-hover:scale-105"
-      />
-      <p className="mt-2 text-center text-semibold text-lg">{name}</p>
-      <p className="text-center text-semibold text-lg">{artist}</p>
+    <div className="group flex flex-col items-center p-2 rounded-lg h-full">
+      <div className="flex-1 min-h-0 flex items-center justify-center">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="max-h-full w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+      <p className="flex-none text-center font-semibold text-sm">{name}</p>
+      <p className="flex-none text-center text-sm text-slate-400">{artist}</p>
     </div>
   );
 }
