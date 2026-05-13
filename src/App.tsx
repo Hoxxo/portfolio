@@ -146,11 +146,9 @@ function App() {
             {lang === 'en' ? 'About Me!' : '私について'}
           </h1>
           <div className="leading-tight">{t.aboutMe}</div>
-          <div>
-            <blockquote>
-              {t.favoriteQuote.quote}
-            </blockquote>
-          </div>
+          {/*<div>*/}
+          {/*  <blockquote>{t.favoriteQuote.quote}</blockquote>*/}
+          {/*</div>*/}
         </section>
 
         <section
@@ -202,6 +200,14 @@ function App() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+        <section
+          id="hiking"
+          className="w-full h-full snap-section flex flex-col overflow-y-auto justify-center"
+        >
+          <div>
+
           </div>
         </section>
       </main>
