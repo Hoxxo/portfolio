@@ -86,11 +86,17 @@ export const albumImageData = [
 export const bookImageData = [
   {
     id: 1,
-    name: "薬屋のひとりごと",
-    author: "日向夏",
-    imageID: "1508432170i/36441259"
-  }
-]
+    name: '薬屋のひとりごと',
+    author: '日向夏',
+    imageID: '1508432170i/36441259',
+  },
+  {
+    id: 2,
+    name: 'Meditations',
+    author: 'Marcus Aurelius',
+    imageID: '1750554861i/233411514',
+  },
+];
 
 export const content = {
   en: {

@@ -146,11 +146,9 @@ function App() {
             {lang === 'en' ? 'About Me!' : '私について'}
           </h1>
           <div className="leading-tight">{t.aboutMe}</div>
-          <div>
-            <blockquote>
-              {t.favoriteQuote.quote}
-            </blockquote>
-          </div>
+          {/*<div>*/}
+          {/*  <blockquote>{t.favoriteQuote.quote}</blockquote>*/}
+          {/*</div>*/}
         </section>
 
         <section
@@ -160,7 +158,9 @@ function App() {
           <h1 className="text-4xl mb-4 border-b-2 border-slate-100 pb-2">
             {lang === 'en' ? 'Personal Favorites' : 'お気に入り'}
           </h1>
-          <h2 className="text-2xl mt-4">{lang === 'en' ? 'Games' : 'ゲーム'}</h2>
+          <h2 className="text-2xl mt-4">
+            {lang === 'en' ? 'Games' : 'ゲーム'}
+          </h2>
           <div className="flex justify-center gap-2">
             {gameImageData.map((data) => (
               <GameCoverArt
@@ -170,7 +170,9 @@ function App() {
               />
             ))}
           </div>
-          <h2 className="text-2xl">{lang === 'en' ? 'Albums & EPs' : 'アルバム・EP'}</h2>
+          <h2 className="text-2xl">
+            {lang === 'en' ? 'Albums & EPs' : 'アルバム・EP'}
+          </h2>
           <div className="flex justify-center">
             {albumImageData.map((data) => (
               <MusicCoverArt
@@ -181,7 +183,9 @@ function App() {
               />
             ))}
           </div>
-          <h2 className="text-2xl">{lang === 'en' ? 'Books & Novels' : '本・小説'}</h2>
+          <h2 className="text-2xl">
+            {lang === 'en' ? 'Books & Novels' : '本・小説'}
+          </h2>
           <div className="flex justify-center">
             {bookImageData.map((data) => (
               <BookCoverArt
@@ -191,6 +195,14 @@ function App() {
                 author={data.author}
               />
             ))}
+          </div>
+        </section>
+        <section
+          id="hiking"
+          className="w-full h-full snap-section flex flex-col overflow-y-auto justify-center"
+        >
+          <div>
+
           </div>
         </section>
       </main>
