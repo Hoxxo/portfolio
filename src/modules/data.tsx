@@ -115,6 +115,12 @@ export const bookImageData = [
     author: '日向夏',
     imageID: '1508432170i/36441259',
   },
+  {
+    id: 2,
+    name: 'Meditations',
+    author: 'Marcus Aurelius',
+    imageID: '1750554861i/233411514',
+  },
 ];
 
 // Drop image files into public/images/hiking/ and add an entry below,
