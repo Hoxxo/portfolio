@@ -98,6 +98,7 @@ function App() {
       <Research
         heading={t.research.heading}
         intro={t.research.intro}
+        paperLink={t.research.paperLink}
         tags={t.research.tags}
       />
 

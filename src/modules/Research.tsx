@@ -1,10 +1,13 @@
+import type { ReactNode } from 'react';
+
 type ResearchProps = {
   heading: string;
   intro: string;
+  paperLink: ReactNode;
   tags: string[];
 };
 
-export default function Research({ heading, intro, tags }: ResearchProps) {
+export default function Research({ heading, intro, paperLink, tags }: ResearchProps) {
   return (
     <section id="research" className="py-24 px-6 bg-crust text-text scroll-mt-16">
       <div className="max-w-4xl mx-auto">
@@ -13,6 +16,7 @@ export default function Research({ heading, intro, tags }: ResearchProps) {
         </h2>
         <p className="text-lg text-subtext1 leading-relaxed max-w-3xl">
           {intro}
+          {paperLink}
         </p>
         <div className="flex flex-wrap gap-2 mt-8">
           {tags.map((tag) => (

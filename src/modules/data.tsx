@@ -177,7 +177,8 @@ export const content = {
     research: {
       heading: 'Research Focus',
       intro:
-        "I'm researching polarization-adjusted convolutional (PAC) codes under Prof. Takahiko Saba, exploring how next-generation error-correcting codes and modulation schemes can push digital communications closer to the theoretical limit. My results were accepted for presentation at IEEE GLOBECOM, the flagship conference of the IEEE Communications Society.",
+        "I'm researching polarization-adjusted convolutional (PAC) codes under Prof. Takahiko Saba, exploring how next-generation error-correcting codes and modulation schemes can push digital communications closer to the theoretical limit. My results were accepted for presentation at IEEE GLOBECOM, the flagship conference of the IEEE Communications Society. ",
+      paperLink: <a href="https://ieeexplore.ieee.org/document/11432289" className="text-mauve hover:underline font-bold flex items-center">Link to my paper</a>,
       tags: [
         'PAC Codes',
         'Digital Communications',
@@ -248,9 +249,9 @@ export const content = {
     hiking: {
       heading: 'Mountain Adventures',
       subtitle: 'Summited Mt. Fuji & Mt. Nantai',
-      body: 'When I step away from the lab, I like to put that same perseverance into the mountains — one slow, deliberate step at a time.',
+      body: 'When I step away from the lab, I like to put that same perseverance into the mountains. One slow, deliberate step at a time.',
       empty:
-        "Photo gallery coming soon — check back after my next summit.",
+        "Photo gallery coming soon. check back after my next summit.",
     },
     globecom: {
       heading: 'IEEE GLOBECOM',
@@ -277,7 +278,7 @@ export const content = {
       </ruby>
     ),
     title: '情報科学専攻　修士2年',
-    badge: '研究職・新卒採用のご相談を歓迎します',
+    badge: '研究職・新卒採用の相談大歓迎です',
     about: (
       <>
         千葉工業大学にてPAC符号の研究に従事．
@@ -319,7 +320,8 @@ export const content = {
     research: {
       heading: '研究内容',
       intro:
-        '佐波孝彦教授の指導のもと、PAC（Polarization-Adjusted Convolutional）符号の研究に取り組んでいます。次世代の誤り訂正符号や変調方式が、ディジタル通信を理論限界にどこまで近づけられるかを探求しています。研究成果はIEEE Communications Societyの旗艦国際会議であるIEEE GLOBECOMでの発表に採択されました。',
+        '佐波孝彦教授の指導のもと、PAC（Polarization-Adjusted Convolutional）符号の研究に取り組んでいます。次世代の誤り訂正符号や変調方式が、ディジタル通信を理論限界にどこまで近づけられるかを探求しています。研究成果はIEEE Communications Societyの旗艦国際会議であるIEEE GLOBECOMでの発表に採択されました。 ',
+      paperLink: <a href="https://ieeexplore.ieee.org/document/11432289" className="text-mauve hover:underline font-bold flex items-center">論文へのリンク</a>,
       tags: ['PAC符号', 'ディジタル通信', '誤り訂正符号', '変調方式'],
     },
     credentials: {
@@ -346,11 +348,11 @@ export const content = {
       alsoLabel: 'その他のお気に入り：',
       games: [
         'Factorio',
-        'Outer Wilds',
-        'Bloodborne',
+        //'Outer Wilds',
+        //'Bloodborne',
         'Return of the Obra Dinn',
         'Hollow Knight',
-        'Hollow Knight: Silksong',
+        //'Hollow Knight: Silksong',
         'ペルソナ 3',
         'ペルソナ 4',
         'ペルソナ 5',
@@ -364,9 +366,9 @@ export const content = {
       ],
       music: [
         'Aphex Twin',
-        '結束バンド',
-        'the cabs',
-        'ずっと真夜中でいいのに。',
+        //'結束バンド',
+        //'the cabs',
+        //'ずっと真夜中でいいのに。',
         'Asian Kung-fu Generation',
         'Round Table feat. Nino',
         'Satellite Lovers',
