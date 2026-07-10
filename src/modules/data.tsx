@@ -159,7 +159,7 @@ export const content = {
     },
     aboutHeading: 'About Me',
     aboutMe: (
-      <div className="prose prose-slate max-w-none prose-base">
+      <div className="prose max-w-none prose-base">
         <Markdown>{markdownContentEn}</Markdown>
       </div>
     ),
@@ -301,7 +301,7 @@ export const content = {
     },
     aboutHeading: '私について',
     aboutMe: (
-      <div className="prose prose-slate max-w-none prose-base">
+      <div className="prose max-w-none prose-base">
         <Markdown>{markdownContentJp}</Markdown>
       </div>
     ),

@@ -14,17 +14,17 @@ export default function MusicCoverArt({
 
   return (
     <div className="group flex flex-col items-center">
-      <div className="w-full aspect-square rounded-xl overflow-hidden bg-slate-100 border border-slate-200 shadow-sm">
+      <div className="w-full aspect-square rounded-xl overflow-hidden bg-mantle border border-surface0 shadow-sm">
         <img
           src={imageUrl}
           alt={name}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-      <p className="mt-2 text-center font-semibold text-sm text-slate-800 truncate max-w-full">
+      <p className="mt-2 text-center font-semibold text-sm text-text truncate max-w-full">
         {name}
       </p>
-      <p className="text-center text-xs text-slate-500 truncate max-w-full">
+      <p className="text-center text-xs text-subtext0 truncate max-w-full">
         {artist}
       </p>
     </div>

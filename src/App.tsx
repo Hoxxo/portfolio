@@ -21,8 +21,17 @@ const SECTIONS = [
   'contact',
 ];
 
+function getInitialTheme(): 'light' | 'dark' {
+  const stored = localStorage.getItem('theme');
+  if (stored === 'light' || stored === 'dark') return stored;
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+}
+
 function App() {
   const [lang, setLang] = useState<'en' | 'jp'>('en');
+  const [theme, setTheme] = useState<'light' | 'dark'>(getInitialTheme);
   const [showEmail, setShowEmail] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState('about');
   const t = content[lang];
@@ -32,6 +41,11 @@ function App() {
     const domain = 'chibatech.ac.jp';
     return `${user}@${domain}`;
   })();
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,10 +68,12 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="bg-base">
       <Nav
         lang={lang}
         setLang={setLang}
+        theme={theme}
+        setTheme={setTheme}
         navLabels={t.nav}
         activeSection={activeSection}
       />
