@@ -1,210 +1,122 @@
-import { useState, useRef, useEffect } from 'react';
-import {content, gameImageData, albumImageData, bookImageData} from './modules/data.tsx';
-import GameCoverArt from './modules/GameCoverArt.tsx';
-import MusicCoverArt from './modules/MusicCoverArt.tsx';
-import BookCoverArt from "./modules/BookCoverArt.tsx";
+import { useState, useEffect } from 'react';
+import { content } from './modules/data.tsx';
+import Nav from './modules/Nav.tsx';
+import Hero from './modules/Hero.tsx';
+import About from './modules/About.tsx';
+import Research from './modules/Research.tsx';
+import Credentials from './modules/Credentials.tsx';
+import Favorites from './modules/Favorites.tsx';
+import Hiking from './modules/Hiking.tsx';
+import GlobeCom from './modules/GlobeCom.tsx';
+import Contact from './modules/Contact.tsx';
+import Footer from './modules/Footer.tsx';
+
+const SECTIONS = [
+  'about',
+  'research',
+  'credentials',
+  'favorites',
+  'hiking',
+  'globecom',
+  'contact',
+];
 
 function App() {
   const [lang, setLang] = useState<'en' | 'jp'>('en');
-  const scrollRef = useRef<HTMLDivElement | undefined>(undefined);
   const [showEmail, setShowEmail] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState('about');
   const t = content[lang];
-  const [activeSection, setActiveSection] = useState(0);
-  const sections = ['about-me', 'interests', 'hiking', 'globecom'];
 
-  const handleEmail = () => {
+  const email = (() => {
     const user = 's2131126uo';
     const domain = 'chibatech.ac.jp';
     return `${user}@${domain}`;
-  };
+  })();
 
   useEffect(() => {
-    const observerOptions = {
-      root: scrollRef.current,
-      threshold: 0.6,
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    );
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const index = sections.indexOf(entry.target.id);
-          setActiveSection(index);
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach((id) => {
+    SECTIONS.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
-  }, [sections]);
+  }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-white">
-      <aside className="w-1/3 h-full p-6 border-r border-slate-100 text-black flex flex-col relative">
-        <nav className="flex justify-end">
-          <button
-            onClick={() => setLang(lang === 'en' ? 'jp' : 'en')}
-            className="px-4 py-2 bg-slate-900 text-white rounded-full text-sm font-bold"
-          >
-            <span className="text-lg">
-              {lang === 'en' ? '日本語' : 'English'}
-            </span>
-          </button>
-        </nav>
+    <div className="bg-white">
+      <Nav
+        lang={lang}
+        setLang={setLang}
+        navLabels={t.nav}
+        activeSection={activeSection}
+      />
 
-        <div className="flex-1 flex flex-col justify-center space-y-4">
-          <header>
-            <h1 className="text-5xl font-black leading-tight tracking-tighter">
-              {t.name}
-            </h1>
-            <p className="text-2xl text-blue-600 font-bold mt-2">{t.title}</p>
-            <p className="text-xl text-slate-500">{t.tagline}</p>
-          </header>
+      <Hero
+        name={t.name}
+        title={t.title}
+        badge={t.badge}
+        tagline={t.tagline}
+        skills={t.skills}
+        ctaPrimary={t.ctaPrimary}
+        ctaSecondary={t.ctaSecondary}
+      />
 
-          <section>
-            <h2 className="text-2xl font-extrabold tracking-tight mb-4 border-b-2 border-slate-100 pb-2">
-              {lang === 'en' ? 'Licences & Degrees' : '学位・資格'}
-            </h2>
-            <ol className="space-y-1 list-decimal list-inside marker:text-blue-600 marker:font-bold">
-              {t.licences.map((license, k) => (
-                <li key={k} className="text-lg text-slate-700">
-                  <span className="ml-2">{license}</span>
-                </li>
-              ))}
-            </ol>
-          </section>
+      <About
+        heading={t.aboutHeading}
+        aboutMe={t.aboutMe}
+        quote={t.favoriteQuote.quote}
+        quoteBy={t.favoriteQuote.by}
+      />
 
-          <section>
-            <div className="w-full border-2 border-blue-600 p-5 rounded-xl bg-blue-50/30">
-              <p className="text-slate-800 leading-relaxed font-medium text-lg">
-                {t.about}
-              </p>
-            </div>
-          </section>
+      <Research
+        heading={t.research.heading}
+        intro={t.research.intro}
+        tags={t.research.tags}
+      />
 
-          <section>
-            <h2 className="text-2xl font-extrabold tracking-tight mb-3 border-b-2 border-slate-100 pb-2">
-              {lang === 'en' ? 'Get In Touch' : '連絡先'}
-            </h2>
-            <div className="flex flex-col space-y-1 text-slate-600">
-              <div className="flex flex-col font-mono text-base">
-                <span className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">
-                  Email
-                </span>
-                {!showEmail && (
-                  <button
-                    className="text-left hover:text-blue-600 transition-colors duration-200"
-                    onClick={() => setShowEmail(!showEmail)}
-                  >
-                    {lang === 'en' ? 'Click to reveal' : 'クリックして表示'}
-                  </button>
-                )}
-                {showEmail && <>{handleEmail()}</>}
-              </div>
-              <a
-                href="https://github.com/Hoxxo"
-                target="_blank"
-                className="text-blue-600 hover:underline font-bold flex items-center"
-              >
-                GitHub <span className="ml-1 text-xs">↗</span>
-              </a>
-            </div>
-          </section>
-        </div>
-      </aside>
+      <Credentials
+        heading={t.credentials.heading}
+        licences={t.credentials.licences}
+      />
 
-      <main className="w-2/3 px-20 h-full overflow-y-auto bg-slate-950 text-white relative scroll-smooth snap-y snap-mandatory">
-        <nav className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col space-y-4 z-30">
-          {sections.map((sectionId, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                // Find the element by ID and scroll it into view
-                document
-                  .getElementById(sectionId)
-                  ?.scrollIntoView({ behavior: 'smooth' });
-                setActiveSection(index);
-              }}
-              className={`w-3 h-3 rounded-full transition-all duration-500 cursor-pointer ${
-                activeSection === index
-                  ? 'bg-fuchsia-700 scale-125 shadow-[0_0_10px_rgba(192,38,211,0.8)]'
-                  : 'bg-slate-700 hover:bg-slate-400'
-              }`}
-              aria-label={`Scroll to ${sectionId}`}
-            />
-          ))}
-        </nav>
+      <Favorites t={t.favorites} />
 
-        <section
-          id="about-me"
-          className="w-full h-full snap-section flex flex-col justify-center"
-        >
-          <h1 className="flex-none text-4xl mb-4 border-b-2 border-slate-100 pb-2">
-            {lang === 'en' ? 'About Me!' : '私について'}
-          </h1>
-          <div className="leading-tight">{t.aboutMe}</div>
-          <div>
-            <blockquote>
-              {t.favoriteQuote.quote}
-            </blockquote>
-          </div>
-        </section>
+      <Hiking
+        heading={t.hiking.heading}
+        subtitle={t.hiking.subtitle}
+        body={t.hiking.body}
+        empty={t.hiking.empty}
+      />
 
-        <section
-          id="interests"
-          className="w-full h-full snap-section flex flex-col py-4 overflow-hidden"
-        >
-          <h1 className="flex-none text-4xl mb-2 border-b-2 border-slate-100 pb-2">
-            {lang === 'en' ? 'Personal Favorites' : 'お気に入り'}
-          </h1>
-          <div className="flex-1 min-h-0 flex flex-col gap-2">
-            <div className="flex-1 min-h-0 flex flex-col">
-              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Games' : 'ゲーム'}</h2>
-              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
-                {gameImageData.map((data) => (
-                  <GameCoverArt
-                    key={data.id}
-                    gameID={data.imageId}
-                    id={data.id}
-                    name={data.name}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 min-h-0 flex flex-col">
-              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Albums & EPs' : 'アルバム・EP'}</h2>
-              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
-                {albumImageData.map((data) => (
-                  <MusicCoverArt
-                    key={data.id}
-                    albumID={data.imageId}
-                    id={data.id}
-                    name={data.name}
-                    artist={data.artist}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="flex-1 min-h-0 flex flex-col">
-              <h2 className="flex-none text-2xl">{lang === 'en' ? 'Books & Novels' : '本・小説'}</h2>
-              <div className="flex-1 min-h-0 flex justify-center gap-2 overflow-hidden">
-                {bookImageData.map((data) => (
-                  <BookCoverArt
-                    key={data.id}
-                    bookID={data.imageID}
-                    id={data.id}
-                    name={data.name}
-                    author={data.author}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
+      <GlobeCom
+        heading={t.globecom.heading}
+        subtitle={t.globecom.subtitle}
+        body={t.globecom.body}
+        empty={t.globecom.empty}
+      />
+
+      <Contact
+        heading={t.contact.heading}
+        body={t.contact.body}
+        emailLabel={t.contact.emailLabel}
+        revealLabel={t.contact.revealLabel}
+        showEmail={showEmail}
+        onReveal={() => setShowEmail(true)}
+        email={email}
+      />
+
+      <Footer note={t.footer.note} />
     </div>
   );
 }
